@@ -42,7 +42,7 @@ function App() {
           <button
             onClick={() => {
               playRainSound();
-              handleWaterClick1(); // this sets the plant as watered, or shows the droplets
+              handleWaterClick1(); // this sets the plant as watered or shows the droplets
             }}
             className='water-btn-img'
           >

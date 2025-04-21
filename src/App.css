@@ -70,7 +70,7 @@
   transform: translateX(-50%);
   font-size: 2rem;
   animation: fall 2s ease-in forwards;
-  pointer-events: none;
+  pointer-events: none; 
 }
 
 @keyframes fall {
