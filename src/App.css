@@ -7,23 +7,20 @@
 
 .App {
   text-align: center;
-  color: #129ac7;
 }
 
 .header-title {
   margin-top: 5%;
-  color: hsl(136, 73%, 27%);
+  color: hsl(136, 42%, 58%);
 }
 
 .App-header {
-  background-color: #365eae;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #3312d8;
 }
 
 .plant-row { 
@@ -75,15 +72,15 @@
 
 @keyframes fall {
   0% {
-    top: -20px;
+    top: -10px;
     opacity: 0;
   }
   50% {
-    top: 10px;
+    top: 30px;
     opacity: 1;
   }
   100% {
-    top: 60px;
+    top: 110px;
     opacity: 0;
   }
 }
@@ -108,9 +105,16 @@
 
 .btn-img {
   width: 40px;
-  height: auto;
-  transition: transform 0.2s ease;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #319da9; 
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  object-position: center center; /* tweak this if the image isn't centered */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
 }
+
 
 .water-btn-img:hover .btn-img {
   transform: scale(1.1);

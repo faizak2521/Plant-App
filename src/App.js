@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
 import logo from './logo.svg'; 
+import plantBtn from './assets/plantBtn.PNG';
 
 
-function App() {
+function App () {
   const [isWatered1, setIsWatered1] = useState(false);
   const [isWatered2, setIsWatered2] = useState(false);
   const [isWatered3, setIsWatered3] = useState(false);
@@ -24,9 +25,43 @@ function App() {
   };
 
   const playRainSound = () => {
+    // Creates a new audio object using the rain sound located in public folder
     const audio = new Audio(process.env.PUBLIC_URL + '/rain-sound.mp3');
-    audio.play();
-  }
+    audio.volume = 1; // Set the initial volume to full (1=100%)
+    audio.play(); // Starts audio
+
+    // Duration of the fade-out effect in ms (1800=1.8 seconds)
+    const fadeOutDuration = 1800; // ms
+    const fadeStep = 100; // Reduces volume every 100ms
+    // Calculates how much volume should decrease
+    const fadeAmount = 1 / (fadeOutDuration / fadeStep);  
+  
+    let fading = false; // Ensures fade out only starts once
+  
+    // Function runs repeatedly as the audio plays and time updates
+    audio.addEventListener('timeupdate', () => {
+      // Calculate how much time is left until the audio ends
+      const remainingTime = audio.duration - audio.currentTime;
+  
+      // If fading hasn't started and theres less than 1.8 seconds do not fade and keep volume 100
+      if (!fading && remainingTime <= fadeOutDuration / 1000) {
+        fading = true;
+        
+        // Start reducing the colume every 100ms
+        const fadeOutInterval = setInterval(() => {
+          // If volume is greater then fade amount, lower it
+          if (audio.volume > fadeAmount) {
+            // Reduces volume but does not cross range below 0
+            audio.volume = Math.max(0, audio.volume - fadeAmount);
+          } else {
+            // Stops audio once it is at lowest
+            audio.volume = 0;
+            clearInterval(fadeOutInterval);
+          }
+        }, fadeStep);
+      }
+    });
+  };
 
   return (
     <div className="app">
@@ -46,7 +81,7 @@ function App() {
             }}
             className='water-btn-img'
           >
-          <img src={logo} alt="Plant watered" className="btn-img" />
+          <img src={plantBtn} alt="Plant watered" className="btn-img" />
         </button>
         </div>
 
@@ -61,7 +96,7 @@ function App() {
             }}
             className='water-btn-img'
           >
-          <img src={logo} alt="Plant watered" className="btn-img" />
+          <img src={plantBtn} alt="Plant watered" className="btn-img" />
         </button>
         </div>
 
@@ -76,7 +111,7 @@ function App() {
             }}
             className='water-btn-img'
           >
-          <img src={logo} alt="Plant watered" className="btn-img" />
+          <img src={plantBtn} alt="Plant watered" className="btn-img" />
         </button>
       </div>
       </section>
