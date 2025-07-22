@@ -71,7 +71,11 @@ function App () {
     
       <section className="plant-row">
         <div className='plant-container'>
-          <img className="plant-img" src={logo} alt='Plant 1'/>
+          <img // Plants sway when watered is true, and stays put when false unless hovered over
+            className={`plant-img ${isWatered1 ? 'swaying': ''}`} 
+            src={logo} 
+            alt='Plant 1'
+          />
           {isWatered1 && <div className='water-animation'> 💧<br /><br />💧 💧 💧<br /><br /> 💧 💧</div> }
           <p className='plant-name'>lushy</p>
           <button
@@ -86,7 +90,11 @@ function App () {
         </div>
 
         <div className='plant-container'>
-          <img className="plant-img" src={logo} alt='Plant 2'/>
+          <img 
+            className={`plant-img ${isWatered2 ? 'swaying': ''}`}
+            src={logo} 
+            alt='Plant 2'
+          />
           {isWatered2 && <div className='water-animation'> 💧<br /><br />💧 💧 💧<br /><br /> 💧 💧</div> }
           <p className='plant-name'>huzzlicious</p>
           <button
@@ -101,7 +109,11 @@ function App () {
         </div>
 
         <div className='plant-container'>
-          <img className="plant-img" src={logo} alt='Plant 3' />
+          <img 
+            className={`plant-img ${isWatered3 ? 'swaying': ''}`}
+            src={logo} 
+            alt='Plant 3' 
+          />
           {isWatered3 && <div className='water-animation'> 💧<br /><br />💧 💧 💧<br /><br /> 💧 💧</div>}
           <p className='plant-name'>sami</p>
           <button
