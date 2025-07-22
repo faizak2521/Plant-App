@@ -113,7 +113,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #319da9; 
+  border: 2px solid #098620; 
   transition: transform 0.3s ease;
   object-fit: cover;
   object-position: center center; /* tweak this if the image isn't centered */
@@ -121,6 +121,12 @@
 
 }
 
+.btn-comment {
+  margin-top: 4px;
+  font-size: 0.5rem;
+  color: #679792; 
+  font-style: italic;
+}
 
 .water-btn-img:hover .btn-img {
   transform: scale(1.1);

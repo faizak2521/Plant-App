@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
+import { useEffect } from 'react';
 import './App.css';
 import logo from './logo.svg'; 
 import plantBtn from './assets/plantBtn.PNG';
-
+const clickSound = process.env.PUBLIC_URL + '/clickSound.mp3'; 
 
 function App () {
   const [isWatered1, setIsWatered1] = useState(false);
@@ -63,6 +64,23 @@ function App () {
     });
   };
 
+
+  /* Listens for any click on window to play mouse sound*/
+  useEffect(() => {
+    const handleGlobalClick = () => {
+      const audio = new Audio(clickSound);
+      audio.play();
+    };
+  
+    // Add event listener
+    window.addEventListener('click', handleGlobalClick);
+  
+    // Clean up when component unmounts
+    return () => {
+      window.removeEventListener('click', handleGlobalClick);
+    };
+  }, []);
+
   return (
     <div className="app">
       <header className='header-title'>
@@ -84,9 +102,11 @@ function App () {
               handleWaterClick1(); // this sets the plant as watered or shows the droplets
             }}
             className='water-btn-img'
+            
           >
           <img src={plantBtn} alt="Plant watered" className="btn-img" />
         </button>
+        <p className="btn-comment">(press me)</p>
         </div>
 
         <div className='plant-container'>
@@ -106,6 +126,7 @@ function App () {
           >
           <img src={plantBtn} alt="Plant watered" className="btn-img" />
         </button>
+        <p className="btn-comment">(press me)</p>
         </div>
 
         <div className='plant-container'>
@@ -115,7 +136,7 @@ function App () {
             alt='Plant 3' 
           />
           {isWatered3 && <div className='water-animation'> 💧<br /><br />💧 💧 💧<br /><br /> 💧 💧</div>}
-          <p className='plant-name'>sami</p>
+          <p className='plant-name'>sambam</p>
           <button
             onClick={() => {
               playRainSound();
@@ -125,6 +146,7 @@ function App () {
           >
           <img src={plantBtn} alt="Plant watered" className="btn-img" />
         </button>
+        <p className="btn-comment">(press me)</p>
       </div>
       </section>
 
