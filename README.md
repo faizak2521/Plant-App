@@ -1,4 +1,4 @@
-# 🌱 Plant App – Grow Your Creativity
+# 🌱 Plant App
 
 Welcome to **Plant App**, a web-based experience built with **React Native for Web** where creativity meets nature. 🌼
 
