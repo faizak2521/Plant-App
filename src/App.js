@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import './App.css';
 import logo from './logo.svg'; 
 import plantBtn from './assets/plantBtn.PNG';
+import plantHuzz from './assets/plantHuzz.PNG';
+import plantLushy from './assets/plantLushy.PNG';
 const clickSound = process.env.PUBLIC_URL + '/clickSound.mp3'; 
 
 function App () {
@@ -81,6 +83,7 @@ function App () {
     };
   }, []);
 
+
   return (
     <div className="app">
       <header className='header-title'>
@@ -91,7 +94,7 @@ function App () {
         <div className='plant-container'>
           <img // Plants sway when watered is true, and stays put when false unless hovered over
             className={`plant-img ${isWatered1 ? 'swaying': ''}`} 
-            src={logo} 
+            src={plantLushy} 
             alt='Plant 1'
           />
           {isWatered1 && <div className='water-animation'> 💧<br /><br />💧 💧 💧<br /><br /> 💧 💧</div> }
@@ -112,7 +115,7 @@ function App () {
         <div className='plant-container'>
           <img 
             className={`plant-img ${isWatered2 ? 'swaying': ''}`}
-            src={logo} 
+            src={plantHuzz} 
             alt='Plant 2'
           />
           {isWatered2 && <div className='water-animation'> 💧<br /><br />💧 💧 💧<br /><br /> 💧 💧</div> }
