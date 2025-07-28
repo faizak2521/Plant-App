@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import { useEffect } from 'react';
 import './App.css';
-import logo from './logo.svg'; 
+//import logo from './logo.svg'; 
 import plantBtn from './assets/plantBtn.PNG';
 import plantHuzz from './assets/plantHuzz.PNG';
 import plantLushy from './assets/plantLushy.PNG';
+import sambam from './assets/sambam.PNG';
+
 const clickSound = process.env.PUBLIC_URL + '/clickSound.mp3'; 
 
 function App () {
@@ -93,12 +95,12 @@ function App () {
       <section className="plant-row">
         <div className='plant-container'>
           <img // Plants sway when watered is true, and stays put when false unless hovered over
-            className={`plant-img ${isWatered1 ? 'swaying': ''}`} 
+            className={`plant-img1 ${isWatered1 ? 'swaying': ''}`} 
             src={plantLushy} 
             alt='Plant 1'
           />
           {isWatered1 && <div className='water-animation'> 💧<br /><br />💧 💧 💧<br /><br /> 💧 💧</div> }
-          <p className='plant-name'>lushy</p>
+          <p className='plant-name1'>lushy</p>
           <button
             onClick={() => {
               playRainSound();
@@ -135,7 +137,7 @@ function App () {
         <div className='plant-container'>
           <img 
             className={`plant-img ${isWatered3 ? 'swaying': ''}`}
-            src={logo} 
+            src={sambam} 
             alt='Plant 3' 
           />
           {isWatered3 && <div className='water-animation'> 💧<br /><br />💧 💧 💧<br /><br /> 💧 💧</div>}
