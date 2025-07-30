@@ -23,6 +23,7 @@
   font-size: calc(10px + 2vmin);
 }
 
+/*your horizontal row for laying out multiple plants.*/
 .plant-row { 
   display: flex;
   justify-content: center;
@@ -32,7 +33,24 @@
   padding: 20px;
   margin-top: 80px;
 }
+/*center content vertically in a container.*/
+.plant-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  width: auto;
+  max-width: auto;
+  min-width: auto;
+  padding: 10px;
 
+}
+
+/* Image swings continuously when hovered with hover ratios*/
+.plant-img:hover {
+  animation: sway 0.6s ease-in-out infinite;
+}
 @keyframes sway {
   0%   { transform: rotate(0deg); }
   25%  { transform: rotate(2deg); }
@@ -41,60 +59,72 @@
   100% { transform: rotate(0deg); }
 }
 
-/* Swings continuously when hovered */
-.plant-img:hover,
-.plant-img1:hover {
-  animation: sway 0.6s ease-in-out infinite;
-}
-
-/* Swings once when watered */
+/* Swings once when watered as well*/
 .swaying {
   animation: sway 1.5s ease-in-out;
 }
 
+/*Image sizing options */
 .plant-img {
-  width: 38vw;               /* Responsive width */
-  height: auto;              /* Keeps image ratio */
-  max-width: 340px;          /* Caps size */
-  min-width: 170px;          /* Doesn't shrink too small */
+  width: 100%;
+  height: 200px;          /* Force uniform height */
+  object-fit: cover;      /* Crop without distorting */
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
-.plant-img1 {
-  width: 38vw;               /* Responsive width */
-  height: auto;              /* Keeps image ratio */
-  max-width: 340px;          /* Caps size */
-  min-width: 170px;          /* Doesn't shrink too small */
-  margin-bottom: 30px;
+/*Image name sizing/color options */
+.plant-name {
   margin-top: 30px;
-}
-/* .plant-img-larger {
-  transform: translateY(20px); 
-  height: 320px;               
-  width: auto;
-} 
-*/
-
-.plant-container {
-  display: inline;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  position: relative;
+  font-size: 1rem;
+  color: #679792; 
+  font-weight: bold;
 }
 
+
+/* For differnt image control
+.plant-img2 {
+  width: 38vw;                 
+  height: auto;              
+  max-width: 340px;         
+  min-width: 170px;           
+  margin-bottom: 1px;
+  margin-top: 5px;        
+}
+.plant-name2 {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: #679792; 
+  font-weight: bold;
+} */
+
+/* .plant-img3 {
+  width: 38vw;              
+  max-width: 340px;          
+  min-width: 170px;          
+  margin-bottom: 10px;
+  margin-top: 30px;
+} */
+/* .plant-name3 {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #679792; 
+  font-weight: bold;
+} */
 
 .water-animation {
   position: absolute;
-  top: -20px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2rem;
+  font-size: 1.5rem;
   animation: fall 2s ease-in forwards;
-  pointer-events: none; 
+  pointer-events: none;
+  z-index: 10; 
 }
-
+/*water droplet motions*/
 @keyframes fall {
   0% {
-    top: -10px;
+    top: -50px;
     opacity: 0;
   }
   50% {
@@ -107,18 +137,6 @@
   }
 }
 
-.plant-name {
-  margin-top: 10px;
-  font-size: 1rem;
-  color: #679792; 
-  font-weight: bold;
-}
-.plant-name1 {
-  margin-top: 15px;
-  font-size: 1rem;
-  color: #679792; 
-  font-weight: bold;
-}
 .app {
   text-align: center;
   font-family: 'MyFont', sans-serif;

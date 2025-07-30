@@ -93,14 +93,14 @@ function App () {
       </header>
     
       <section className="plant-row">
-        <div className='plant-container'>
+        <div className='plant-card'>
           <img // Plants sway when watered is true, and stays put when false unless hovered over
-            className={`plant-img1 ${isWatered1 ? 'swaying': ''}`} 
+            className={`plant-img ${isWatered1 ? 'swaying': ''}`} 
             src={plantLushy} 
             alt='Plant 1'
           />
           {isWatered1 && <div className='water-animation'> 💧<br /><br />💧 💧 💧<br /><br /> 💧 💧</div> }
-          <p className='plant-name1'>lushy</p>
+          <p className='plant-name'>lushy</p>
           <button
             onClick={() => {
               playRainSound();
@@ -114,7 +114,7 @@ function App () {
         <p className="btn-comment">(press me)</p>
         </div>
 
-        <div className='plant-container'>
+        <div className='plant-card'>
           <img 
             className={`plant-img ${isWatered2 ? 'swaying': ''}`}
             src={plantHuzz} 
@@ -134,7 +134,7 @@ function App () {
         <p className="btn-comment">(press me)</p>
         </div>
 
-        <div className='plant-container'>
+        <div className='plant-card'>
           <img 
             className={`plant-img ${isWatered3 ? 'swaying': ''}`}
             src={sambam} 
